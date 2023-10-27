@@ -1,14 +1,10 @@
-1. Instalamos los siguientes paquetes:
-
-apt install build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev
-
-2. Instalamos bspwm y sxhkd:
+1. Instalamos bspwm y sxhkd:
 paru -S bspwm sxhkd
 cd /home/s3rv1/Desktop/s3rv1/repos
 git clone https://github.com/baskerville/bspwm.git
 git clone https://github.com/baskerville/sxhkd.git
 
-3. Cargamos en bspwm y sxhkd ficheros de ejemplo:
+2. Cargamos en bspwm y sxhkd ficheros de ejemplo:
 
 mkdir ~/.config/bspwm
 mkdir ~/.config/sxhkd
@@ -17,7 +13,7 @@ cp examples/bspwmrc ~/.config/bspwm/
 chmod +x ~/.config/bspwm/bspwmrc 
 cp examples/sxhkdrc ~/.config/sxhkd/
 
-4. Abrimos el sxhkdrc y configuramos el tipo de terminal así como algunos key bindings:
+3. Abrimos el sxhkdrc y configuramos el tipo de terminal así como algunos key bindings:
 cd ~/.config/sxhkd/
 nano sxhkdrc
 
@@ -150,7 +146,7 @@ alt + super + {Left,Down,Up,Right}
 	/home/s3rv1/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 # ------------------------------------------------------------------------------------------------
 
-5. Creamos el archivo bspwm_resize:
+4. Creamos el archivo bspwm_resize:
 
 mkdir ~/.config/bspwm/scripts/
 touch ~/.config/bspwm/scripts/bspwm_resize; chmod +x ~/.config/bspwm/scripts/bspwm_resize
@@ -176,17 +172,11 @@ esac
 bspc node -z "$dir" "$x" "$y" || bspc node -z "$falldir" "$x" "$y"
 # -------------------------------------------------------------------------------------------------
 
-6. Procedemos a instalar la polybar. Para ello, instalamos primero los siguientes paquetes:
-
-sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev
-
-Para instalar la polybar hacemos lo siguiente:
+5. Procedemos a instalar la polybar. Para ello, 
 
 paru -S polybar
 
 7. Procedemos con la instalación de Picom para ajustar las transparencias (Compton ya está deprecated).
-
-Primeramente, instalamos los siguientes paquetes, no sin antes actualizar el sistema:
 
 paru -S picom
 
@@ -196,9 +186,17 @@ paru -S rofi
 
 9. En este punto, reiniciamos el equipo y seleccionamos bspwm (Probamos que los shortcuts estén funcionando correctamente).
 
-10. Configuramos un poco la terminal e instalamos las Hack Nerd Fonts, además del Firefox (hay que descargarse la última versión, también instalaremos firejail con 'apt install firejail' con el objetivo de lanzar firefox bajo este contexto enjaulado con sxhkd). [Las fuentes de Hack Nerd Fonts deben ir descomprimidas en /usr/local/share/fonts/, una vez hecho hay que ejecutar el comando 'fc-cache -v']
+10. Configuramos un poco la terminal e instalamos las Hack Nerd Fonts, 
+además del Firefox (hay que descargarse la última versión, también instalaremos firejail
+con 'apt install firejail' con el objetivo de lanzar firefox bajo este contexto enjaulado
+con sxhkd). 
+[Las fuentes de Hack Nerd Fonts deben ir descomprimidas en /usr/local/share/fonts/,
+ una vez hecho hay que ejecutar el comando 'fc-cache -v']
+
 paru -S nerd-fonts-jetbrains-mono ttf-font-awesome ttf-awesome-4 ttf-material-desing-icons
+
 **HackNerdFont** - [here](https://mega.nz/file/8EdQRBaR#cFPNQcHJfCKDx1KePSlf2kLE5uQnTNxqlvqj0FHSaZE)
+
 11. Instalamos el addon 'FoxyProxy' para Firefox.
 
 12. Configuramos la privacidad en Firefox y el directorio de descargas principal
@@ -208,7 +206,7 @@ sudo pacman -S feh
 
 14. Cargamos en el archivo bspwmrc justo al final la siguiente línea:
 
-feh --bg-fill /home/s4vitar/Desktop/S4vitar/Images/fondo.jpg
+feh --bg-fill /home/s3rv1/Desktop/S3rv1/wallpaper/bg.png
 
 15. Para configurar nuestra Polybar, clonaremos primeramente en 'Descargas' el siguiente repositorio:
 
@@ -217,7 +215,7 @@ git clone https://github.com/VaughnValle/blue-sky.git
 Posteriormente, ejecutaremos los siguientes comandos:
 
 mkdir ~/.config/polybar
-cd ~/Descargas/blue-sky/polybar/
+cd ~/Desktop/S3rv1/repos/blue-sky/polybar/
 cp * -r ~/.config/polybar
 echo '~/.config/polybar/./launch.sh' >> ~/.config/bspwm/bspwmrc 
 cd fonts
@@ -226,7 +224,8 @@ fc-cache -v
 
 Hacemos Windows + Shift + R para cargar la configuración y deberíamos ver la Polybar por arriba.
 
-16. Para configurar Picom y ajustar las transparencias además de bordeados de ventana, ejecutamos los siguientes pasos:
+16. Para configurar Picom y ajustar las transparencias además de bordeados de ventana,
+ejecutamos los siguientes pasos:
 
 mkdir ~/.config/picom
 cd ~/.config/picom
