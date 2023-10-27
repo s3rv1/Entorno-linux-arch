@@ -18,6 +18,9 @@ chmod +x ~/.config/bspwm/bspwmrc
 cp examples/sxhkdrc ~/.config/sxhkd/
 
 4. Abrimos el sxhkdrc y configuramos el tipo de terminal así como algunos key bindings:
+cd ~/.config/sxhkd/
+nano sxhkdrc
+
 # ------------------------------------------------------------------------------------------------
 #
 # wm independent hotkeys
@@ -25,7 +28,7 @@ cp examples/sxhkdrc ~/.config/sxhkd/
 
 # terminal emulator
 super + Return
-	gnome-terminal
+	kitty
 
 # program launcher
 super + d
@@ -40,7 +43,7 @@ super + Escape
 #
 
 # quit/restart bspwm
-super + alt + {q,r}
+super + shift + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
@@ -144,7 +147,7 @@ super + ctrl + {Left,Down,Up,Right}
 
 # Custom move/resize
 alt + super + {Left,Down,Up,Right}
-	/home/s4vitar/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+	/home/s3rv1/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 # ------------------------------------------------------------------------------------------------
 
 5. Creamos el archivo bspwm_resize:
@@ -179,39 +182,23 @@ sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb
 
 Para instalar la polybar hacemos lo siguiente:
 
-cd /home/s4vitar/Descargas/
-git clone --recursive https://github.com/polybar/polybar
-cd polybar/
-mkdir build
-cd build/
-cmake ..
-make -j$(nproc)
-sudo make install
+paru -S polybar
 
 7. Procedemos con la instalación de Picom para ajustar las transparencias (Compton ya está deprecated).
 
 Primeramente, instalamos los siguientes paquetes, no sin antes actualizar el sistema:
 
-sudo apt update
-sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev
-
-Posteriormente, ejecutamos los siguientes comandos bajo el directorio ~/Descargas:
-
-git clone https://github.com/ibhagwan/picom.git
-cd picom/
-git submodule update --init --recursive
-meson --buildtype=release . build
-ninja -C build
-sudo ninja -C build install
+paru -S picom
 
 8. Instalamos rofi (Posteriormente instalaremos el tema Nord para Rofi):
 
-sudo apt install rofi
+paru -S rofi
 
 9. En este punto, reiniciamos el equipo y seleccionamos bspwm (Probamos que los shortcuts estén funcionando correctamente).
 
 10. Configuramos un poco la terminal e instalamos las Hack Nerd Fonts, además del Firefox (hay que descargarse la última versión, también instalaremos firejail con 'apt install firejail' con el objetivo de lanzar firefox bajo este contexto enjaulado con sxhkd). [Las fuentes de Hack Nerd Fonts deben ir descomprimidas en /usr/local/share/fonts/, una vez hecho hay que ejecutar el comando 'fc-cache -v']
-
+paru -S nerd-fonts-jetbrains-mono ttf-font-awesome ttf-awesome-4 ttf-material-desing-icons
+**HackNerdFont** - [here](https://mega.nz/file/8EdQRBaR#cFPNQcHJfCKDx1KePSlf2kLE5uQnTNxqlvqj0FHSaZE)
 11. Instalamos el addon 'FoxyProxy' para Firefox.
 
 12. Configuramos la privacidad en Firefox y el directorio de descargas principal
