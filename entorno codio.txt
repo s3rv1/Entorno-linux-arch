@@ -204,6 +204,7 @@ paru -S nerd-fonts-jetbrains-mono ttf-font-awesome ttf-awesome-4 ttf-material-de
 12. Configuramos la privacidad en Firefox y el directorio de descargas principal
 
 13. Instalamos 'feh' con 'apt install feh' para poder cargar fondos de pantalla.
+sudo pacman -S feh
 
 14. Cargamos en el archivo bspwmrc justo al final la siguiente línea:
 
