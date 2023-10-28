@@ -281,21 +281,20 @@ Posteriormente con 'rofi-theme-selector' seleccionamos el tema Nord.
 19. Instalamos slim y slimlock
 
 Instalamos los siguientes paquetes, no sin antes hacer una actualización:
-
-sudo apt update
-sudo apt install slim libpam0g-dev libxrandr-dev libfreetype6-dev libimlib2-dev libxft-dev
+En ArchLinux
+sudo pacman -S slim slimlock
 
 Posteriormente, ejecutamos los siguientes comandos:
 
-cd ~/Descargas/
-git clone https://github.com/joelburget/slimlock.git
-cd slimlock/
-sudo make
-sudo make install
-cd ~/Descargas/blue-sky/slim
+cd ~/Desktop/s3rv1/repos/blue-sky/slim
 sudo cp slim.conf /etc/
 sudo cp slimlock.conf /etc
 sudo cp -r default /usr/share/slim/themes
+
+
+#si estas en gnome
+sudo systemctl disable display-manager.service
+sudo systemctl enable slim
 
 Si queremos cambiar la imagen del panel, nos vamos a la ruta '/usr/share/slim/themes/default' y retocamos el archivo 'panel.png'.
 
